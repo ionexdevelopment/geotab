@@ -19,15 +19,19 @@
 });
                 },
                 refreshPage = function() {
-                    api.call("Get", {
-                        typeName: "Device"
-                    }, function(result) {
-                        center.addEventListener("click", goToVehicles, false);
-                        center.appendChild(listCreator(result));
-                    }, function(error) {
-                        console.log(error.message);
-                    });
-                },
+                  api.call("Get", {
+ "typeName": "StatusData",
+ "search": {
+ "deviceSearch": {"id":"b1"},
+ "diagnosticSearch": {"id":"amxN-4GzMDkCSW-lOr4Cwzg"},
+ "fromDate":"2019-12-12T00:00:00.000Z",
+ "toDate":"2019-12-13T00:00:00.000Z",
+ }
+}, function(result) {
+ console.log("Done: ", result);
+}, function(e) {
+ console.error("Failed:", e);
+});
                 clearOnLeaving = function() {
                     center.removeEventListener("click", goToVehicles, false);
                     center.innerHTML = "";
