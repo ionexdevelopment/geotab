@@ -4,7 +4,7 @@
     <title>Trailer Tempature</title>
     <link rel="stylesheet" href="integrationExample.css" />
     <script>
-     api.call("Get", {
+        api.call("Get", {
  "typeName": "StatusData",
  "search": {
  "deviceSearch": {"id":"b1"},
@@ -17,20 +17,8 @@
 }, function(e) {
  console.error("Failed:", e);
 });
-                },
-                refreshPage = function() {
-                  api.call("Get", {
- "typeName": "StatusData",
- "search": {
- "deviceSearch": {"id":"b1"},
- "diagnosticSearch": {"id":"amxN-4GzMDkCSW-lOr4Cwzg"},
- "fromDate":"2019-12-12T00:00:00.000Z",
- "toDate":"2019-12-13T00:00:00.000Z",
- }
-}, function(result) {
- console.log("Done: ", result);
-}, function(e) {
- console.error("Failed:", e);
+
+
 });
                 clearOnLeaving = function() {
                     center.removeEventListener("click", goToVehicles, false);
